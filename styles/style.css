@@ -99,26 +99,52 @@ input[type="search"] {
   padding: var(--spacing-base) var(--spacing-lg);
 }
 
+/* 공통 메인 컨텐츠 섹션 제목 */
+[class*="__title"] {
+  margin-bottom: 16px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+[class*="__koTitle"] {
+  font-size: var(--text-md);
+  font-weight: 700;
+}
+
+[class*="__enTitle"] {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.sprite {
+  height: 3.75rem;
+  background: url(../images/sprite_main.png) no-repeat;
+  padding-left: 4rem;
+}
+
+.spriteNews {background-position: 0 -230px;}
+.spriteBoard {background-position: 0 -115px;}
+.spriteFavorite {background-position: 0 -345px;}
+.spriteTwitter {background-position: 0 -460px;}
+
+.accentBook{color: var(--accent-book);}
+.accentNews{color: var(--accent-news);}
+.accentBoard{color: var(--accent-board);}
+.accentFavorite{color: var(--accent-favorite);}
+.accentTwitter{color: var(--accent-twitter);}
+
+
 /* 공통 추천 서적 */
-.book {
-  background-color: lightgreen;
-}
+.book {grid-area: book;}
 /* 공통 새소식 */
-.news {
-  background-color: yellow;
-}
+.news {grid-area: news;}
 /* 공통 게시판 */
-.board {
-  background-color: lightsalmon;
-}
+.board {grid-area: board;}
 /* 공통 인기 사이트 */
-.favorite {
-  background-color: skyblue;
-}
+.favorite {grid-area: favorite;}
 /* 공통 트위터 */
-.twitter {
-  background-color: burlywood;
-}
+.twitter {grid-area: twitter;}
 
 /* 모바일 디바이스 (Mobile Device) */
 @media (min-width: 320px) and (max-width: 768px) {
@@ -230,6 +256,7 @@ input[type="search"] {
   .appMain {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
+    grid-template-areas: "book" "news" "board" "favorite" "twitter";
   }
 }
 
@@ -282,37 +309,21 @@ input[type="search"] {
   .menu__link {
     padding: var(--spacing-md) var(--spacing-lg);
     color: var(--white);
-    font-size: var(--text-lg);
+    font-size: 1.2rem;
     text-shadow: 1px 1px 0 var(--black), -1px -1px 0 var(--black);
   }
 
   /* 데스크탑 메인 콘텐츠 */
   .appMain {
+    max-width: var(--container-width);
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-areas: 
       "news news news news news news news news news news news news"
       "book book book book twitter twitter twitter twitter twitter favorite favorite favorite"
       "book book book book . board board board board board board board";
-  }
-
-  .book {
-    grid-area: book;
-  }
-
-  .news {
-    grid-area: news;
-  }
-
-  .board {
-    grid-area: board;
-  }
-
-  .favorite {
-    grid-area: favorite;
-  }
-
-  .twitter {
-    grid-area: twitter;
   }
 }
 
