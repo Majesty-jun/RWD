@@ -3,3 +3,82 @@
 @import url(./a11y.css);
 @import url(./theme.css);
 @import url(./base.css);
+
+.appHeader {
+  position: relative;
+  padding: var(--spacing-base) var(--spacing-lg);
+  display: flex;
+  flex-flow: column nowrap;
+  gap: var(--spacing-base);
+}
+
+.logo {
+  width: 12.75rem; /* 204px */
+  height: 3.687rem; /* 59px */
+}
+
+.logo__link {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url(../images/webcafe-logo.png) no-repeat;
+}
+
+.memberList {
+  max-width: 75rem;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+}
+
+.memberList a {
+  padding: 0 var(--spacing-xs);
+}
+
+.searchForm__container {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.searchForm__input {
+  border: 1px solid var(--silver);
+  border-radius: 0.25rem;
+  margin-right: var(--spacing-xs);
+}
+
+.searchForm__button {
+  background-color: var(--secondary-color);
+  font-size: var(--text-sm);
+  height: 2rem;
+  color: var(--white);
+  border: 0;
+  padding: 0.125rem 0.75rem;
+  border-radius: 0.25rem;
+}
+
+@media (min-width: 768px) {
+  .appHeader {
+    max-width: var(--container-width);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .logo {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .searchForm__container {
+    justify-content: flex-end;
+  }
+
+  .searchForm__input {
+    width: 25rem;
+  }
+
+  .searchForm__button {
+    margin-right: var(--spacing-xs);
+  }
+}
